@@ -45,7 +45,7 @@ public class InventoryManager : MonoBehaviour
             itemSlot = FindObjectsOfType<ItemSlot>();
         }
 
-        // 🔥 ASIGNAR ÍNDICE A CADA SLOT (NUEVO)
+        //  ASIGNAR ÍNDICE A CADA SLOT (NUEVO)
         for (int i = 0; i < itemSlot.Length; i++)
         {
             itemSlot[i].slotIndex = i;  // ← Slot 0 = índice 0, Slot 1 = índice 1, etc.
@@ -84,7 +84,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
 
-        // 🔥 GUARDAR automáticamente después de añadir
+        //  GUARDAR automáticamente después de añadir
         if (remaining == 0 && currentUserID != -1)
         {
             SaveInventoryToDB();
@@ -148,7 +148,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    // 🔥 MÉTODO CRÍTICO: Obtener DBManager SEGURO
+    
     // Reemplaza TODO el método GetDBManager() por ESTE:
     private DBManager GetDBManager()
     {
