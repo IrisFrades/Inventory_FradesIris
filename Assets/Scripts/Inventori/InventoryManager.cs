@@ -45,7 +45,7 @@ public class InventoryManager : MonoBehaviour
             itemSlot = FindObjectsOfType<ItemSlot>();
         }
 
-        //  ASIGNAR ÍNDICE A CADA SLOT (NUEVO)
+        // se asigna un indice a cada slot
         for (int i = 0; i < itemSlot.Length; i++)
         {
             itemSlot[i].slotIndex = i;  // ← Slot 0 = índice 0, Slot 1 = índice 1, etc.
@@ -84,7 +84,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
 
-        //  GUARDAR automáticamente después de añadir
+        //  se guarda automáticamente después de añadir
         if (remaining == 0 && currentUserID != -1)
         {
             SaveInventoryToDB();
@@ -95,9 +95,9 @@ public class InventoryManager : MonoBehaviour
 
     public void DeselectAllSlots()
     {
-        selectedSlot = null;  // ← AÑADE ESTO
+        selectedSlot = null; //el slot se marca como null
 
-        // Usar el array ACTUALIZADO de slots
+        // Usar el array de slots
         if (itemSlot != null)
         {
             for (int i = 0; i < itemSlot.Length; i++)
@@ -149,19 +149,11 @@ public class InventoryManager : MonoBehaviour
     }
 
     
-    // Reemplaza TODO el método GetDBManager() por ESTE:
+    
     private DBManager GetDBManager()
     {
-        return DBManager.Instance; // ← Directo, nunca null
+        return DBManager.Instance; 
     }
-
-    // Reemplaza UpdateDBManager() por:
-    private void UpdateDBManager()
-    {
-        // Ya no necesario - Instance siempre funciona
-        Debug.Log("DBManager singleton listo");
-    }
-
 
     //BASE DE DATOS//
     public void SaveInventoryToDB()
@@ -241,7 +233,7 @@ public class InventoryManager : MonoBehaviour
 
     private void RefreshItemSlots()
     {
-        itemSlot = FindObjectsOfType<ItemSlot>();  // ← Encuentra los slots NUEVOS
+        itemSlot = FindObjectsOfType<ItemSlot>();  // Encuentra los slots NUEVOS
 
         for (int i = 0; i < itemSlot.Length; i++)
         {
@@ -251,7 +243,7 @@ public class InventoryManager : MonoBehaviour
     }
 
 
-    // 🔥 GUARDAR al salir de la app
+    // guardar al salir de la app
     private void OnApplicationPause(bool pauseStatus)
     {
         if (pauseStatus && currentUserID != -1)
