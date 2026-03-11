@@ -155,6 +155,12 @@ public class InventoryManager : MonoBehaviour
         return DBManager.Instance; 
     }
 
+    private void UpdateDBManager()
+    {
+        //Mira si el db manager esta correcte
+        Debug.Log("DBManager llest");
+    }
+
     //BASE DE DATOS//
     public void SaveInventoryToDB()
     {
